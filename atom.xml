@@ -10,8 +10,65 @@
         <email>email@michtran.ca</email>
         
     </author>
-    <updated>2025-01-01T00:00:00Z</updated>
+    <updated>2026-01-01T00:00:00Z</updated>
     <entry>
+    <title>Retrospective on 2025</title>
+    <link href="http://michtran.ca/blog//blog/posts/2026-01-01-Retrospective.html" />
+    <id>http://michtran.ca/blog//blog/posts/2026-01-01-Retrospective.html</id>
+    <published>2026-01-01T00:00:00Z</published>
+    <updated>2026-01-01T00:00:00Z</updated>
+    <summary type="html"><![CDATA[<div class="info">
+<em>Posted on January  1, 2026</em>
+    
+</div>
+
+<p>This last year was the Year of the Snake in the Chinese Zodiac.
+According to superstition, it’s supposed to be a bad year for me.
+I broke my one of my tooth and had to get it removed (after a failed attempt to try to save it).
+My team at work got downsized, and I decided to move to the security team.
+And finally, although I did reach my reading goal this year,
+I was in a reading slump all year.
+The best thing I read were <a href="https://www.goodreads.com/series/244606-the-shapes-trilogy">The Shapes Trilogy</a>
+by Mac Barnett and Jon Klassen.
+Anyways, it was not a great year personally, but I felt like my personal problems were
+eclipsed by things happening in the world
+(which I won’t get into here).</p>
+<p>As mentioned above, I switched to the security team this year.
+With all the vibe coding going on in the industry,
+I was thinking that it would mean that secure design would be more important.
+So when the opportunity to join the security team was available,
+I decided it was a good move to help me develop skills around secure software design.
+Anyways, it’s hard to predict where the industry is headed,
+but doing more security probably wouldn’t really hurt my career.
+Plus I find it interesting.</p>
+<p>I started cycling to work because the TTC was a mess this summer.
+Taking transit sometimes took almost exactly the same amount of time as walking home.
+So I decided to brave the streets of Toronto and go on my bike.
+I haven’t died so far, so that’s promising.</p>
+<p>We went to Banff and Drumheller during the summer.
+Banff was really expensive, but also quite beautiful.
+Drumheller was all about dinosaurs,
+and a good family trip for young children
+(nice desert hikes, dinosaur museums and kitschy dinosaur town).
+It’s also amazing to see the geographical diversity within one province,
+where you can go from alpine mountains to rocky desert within a 6 hour drive.</p>
+<p>The last notable thing that happened to me was that I got a new phone.
+My last phone lasted from 2019 to 2025.
+The only reason to replace the old Huawei P30 Lite was that it did not support NFC
+(for a bunch of virtual cards that I wanted to use it for)
+and that my model did not support various 5Ghz WiFi bands that are in North America
+(so it was a hit or miss connecting based on router configurations).
+Anyways, I’ve beaten my previous record for how long I’ve had my phone before replacing
+(which was 5 years for my Nexus 5).</p>
+<p>Some goals for the next year:</p>
+<ul>
+<li>Read 52 books</li>
+<li>Attempt to get a security certification</li>
+<li>Write a chapter a week (I’m still working on that wuxia novel)</li>
+</ul>
+]]></summary>
+</entry>
+<entry>
     <title>Retrospective on 2024</title>
     <link href="http://michtran.ca/blog//blog/posts/2025-01-01-Retrospective.html" />
     <id>http://michtran.ca/blog//blog/posts/2025-01-01-Retrospective.html</id>
@@ -172,108 +229,6 @@ especially if you’ve got a stressful job, parenting responsbilities, and livin
 but maybe I can fix my diet.
 And I should learn Chinese more seriously by taking online classes.
 And maybe also draw and paint more.</p>
-]]></summary>
-</entry>
-<entry>
-    <title>Product Limits, You're Going to Need Them</title>
-    <link href="http://michtran.ca/blog//blog/posts/2023-01-11-Product_limits.html" />
-    <id>http://michtran.ca/blog//blog/posts/2023-01-11-Product_limits.html</id>
-    <published>2023-01-11T00:00:00Z</published>
-    <updated>2023-01-11T00:00:00Z</updated>
-    <summary type="html"><![CDATA[<div class="info">
-<em>Posted on January 11, 2023</em>
-    
-</div>
-
-<p>Limits on the product functionality
-is often overlooked and added too late.
-They tend to be considered after we run into problems with the API,
-usually after a major incident where we ask
-<em>“how could this have been prevented”</em> in the incident review.
-However, once users are accustomed to a certain way of calling the API,
-it becomes <em>incredibly</em> difficult to add the limit without annoying those users
-(will likely involve getting them to migrate to a new API or you needing to set a custom limit on them,
-which won’t result any customer satisfaction either way).
-And if they’re paying users, than that might just sink your business.
-So, it’s good to set product limits early to ensure more predictable and manageable operations.</p>
-<h2 id="guidelines-for-thinking-about-product-limits">Guidelines for Thinking about Product Limits</h2>
-<p>I like to come up with checklists on what to think about when it comes making sure I consider <em>stuff</em>
-(not just product limits) when designing a new system.
-These product limit questions are not meant to be exhaustive,
-but just serve as a starting point for thinking about where to add limits.
-In my experience, there are generally a few areas where these types of limits should be considered:</p>
-<h3 id="api-level-limits">API Level Limits</h3>
-<p>These limits are the ones that exists on the API.
-Generally, these are the easiest to understand
-as there are lots of examples of APIs that implemented these
-which you can look at.
-They usually involve some sort of limit on request and response.
-Some useful questions you may want to ask yourself when thinking about designing a new API:</p>
-<ul>
-<li><p>Do we want to set a rate limit on the API? What do we want limit on? (ie. account rate limiting? session rate limiting?)</p></li>
-<li><p>For endpoints where we return a list of items:</p>
-<ul>
-<li>What kind of pagination strategy can/should we use? (ie. cursor, offset/limit etc.)</li>
-<li>How many results should we return as default on a single page?</li>
-<li>How many results should we set as a max on a single request?</li>
-<li>How far back do we allow users to paginate?</li>
-</ul></li>
-<li><p>What should our response SLAs be?</p></li>
-</ul>
-<h3 id="storage-limits">Storage Limits</h3>
-<p>These limits generally deal with how long we store data
-and potential contractual limits set on the data.
-Storage and data access are not free,
-so we should always consider trimming off the unnecessary data
-and being explicit about the limitations on storage and access.
-Some questions you might want to ask yourself about the data you’re adding:</p>
-<ul>
-<li><p>What should our retention policy be? How do we enforce this?</p></li>
-<li><p>Do we want to set a limit to how many objects we store per account/user? How do we enforce this?</p></li>
-<li><p>Do we want to consider tiered access, where users can access data by certain APIs up to certain point,
-but require a different API or need to contact our customer support for data beyond that threshold?</p></li>
-<li><p>Should there be size limits for uploaded files?</p></li>
-<li><p>Should there be number of files uploaded for the user? account? session?</p></li>
-</ul>
-<h3 id="third-party-request-limits">Third Party Request Limits</h3>
-<p>We want to also consider limits when talking to downstream dependencies.
-If you application will require a lot of network requests to downstream services,
-then it would be good to think about the sort of interactions that are acceptable
-which will affect some of the API contract requirements that we will have.
-Some questions you may want to ask yourself as you inventory your downsteam requests:</p>
-<ul>
-<li><p>What sorts of timeouts make sense? Given our SLAs?</p></li>
-<li><p>If third party doesn’t return, what kind of degradation will be acceptable?
-Would having graceful degradation make sense?</p></li>
-</ul>
-<h3 id="data-synchronicity">Data Synchronicity</h3>
-<p>Lastly, for systems that are OK with some level of eventual consistency,
-we will want to consider how this affects the system
-and what sort of delay we would be able to tolerate.
-Some questions you may want to ask yourself about the behaviour of your APIs and data entities
-related to synchronicity:</p>
-<ul>
-<li><p>Do we have any eventual consistency for data objects that we control? What kind of delay can we tolerate for this?</p></li>
-<li><p>Are there any interactions between our APIs that need to be <em>in-sync</em>?
-ie. API requests dealing with financial balance will likely require more synchronicity than uploading a profile picture.</p></li>
-<li><p>Can any of the entities that we control relax their current synchronicity?
-(not that we’re necessarily going to do so,
-but just that the actual requirements for that object isn’t as strict as it is currently implemented)</p></li>
-</ul>
-<h2 id="conclusion">Conclusion</h2>
-<p>I wrote this as an exercise to myself for thinking about product limits for one of the projects I’ve lead.
-Hopefully someone else will find this useful as well.</p>
-<!--- 
-Considerations
-
-- Examples given on the program docs just specify entity limits. I’ve included other things like request timeouts and other product related SLA stuff (which arguably are also “product limits”, as it sets expectations on caller). It’s a question on scope… how much do we think these SLAs are important for availability?
-
-_ For APIs that appear on web, we will likely want to follow some of Web’s SLAs (particularly in regards to the response time SLAs). 
-
-_ I’m also thinking that there is not benefit (for us at least) to separating the API based on source that is calling it (ie. web, API, mobile etc). There might be benefits for other high priority apis (like authentication), but for us I think we can look at APIs as generally as possible.
-
-- For newer services, it will be hard to figure out what our limits should be (as we don’t have established usage patterns). So for these, coming up with a limit based off of what we are expecting from the first iteration of the product should be fine. For example, for triage-assist-service, we can probably set our max limit to 20, as the only place where we’re using that service will only need 20 incidents. If the product changes, then we can consider changing this. Otherwise, we can probably also set an arbitrary larger limit (ie. 50), but the most important is that we’ve thought about and have set something relatively reasonable. 
--->
 ]]></summary>
 </entry>
 
